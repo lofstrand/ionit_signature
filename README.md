@@ -46,13 +46,13 @@ Run the script from PowerShell, specifying the required parameters.
 
 ### **Positional Arguments**
 
-| **Parameter** | **Description**                             | **Example**               |
-|---------------|---------------------------------------------|---------------------------|
-| `Name`        | Full name of the user                       | `John Doe`                |
-| `Position`    | Job title or position                       | `Senior Developer`        |
-| `Phone`       | Phone number                                | `+46 701 234 567`         |
-| `Email`       | Email address for the signature             | `john.doe@nionit.com`     |
-| `Office`      | Office location (case-sensitive)            | `Stockholm`               |
+| **Parameter** | **Description**                                             | **Example**               |
+|---------------|-------------------------------------------------------------|---------------------------|
+| `Name`        | Full name of the user                                       | `John Doe`                |
+| `Position`    | Job title or position                                       | `Senior Developer`        |
+| `Phone`       | Phone number                                                | `+46 701 234 567`         |
+| `Email`       | Email address for the signature (case-sensitive)            | `John.Doe@nionit.com`     |
+| `Office`      | Office location (case-sensitive)                            | `Stockholm`               |
 
 ### **Examples**
 
