@@ -94,14 +94,13 @@ NionIT_Template/
 
 The following placeholders in the template files will be replaced by user-specific values:
 
-- `{{Name}}`: User's name
-- `{{Position}}`: User's job title
-- `{{Phone}}`: User's phone number
-- `{{Email}}`: User's email (converted to lowercase)
 - `{{Address}}`: Address based on specified office
+- `{{Email}}`: User's email (converted to lowercase)
 - `{{Greeting}}`: Custom greeting based on office
-- `{{ImagePath}}`: Path to the logo image (spaces encoded as `%20`)
+- `{{Name}}`: User's name
 - `{{Office}}`: Office location name
+- `{{Phone}}`: User's phone number
+- `{{Position}}`: User's job title
 
 ## 🛠 **Troubleshooting**
 
