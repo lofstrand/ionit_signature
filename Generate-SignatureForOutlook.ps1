@@ -89,7 +89,7 @@ $signatureName = "_$Office ($Email)"
 $signatureFilesFolder = ($TemplateName -replace '_Template', "_$Office ($Email)_files")
 
 # Construct the image path for the current signature
-$signatureImagePath = $signatureFilesFolder + "/logo.png"
+$signatureImagePath = $signatureFilesFolder + "/image001.png"
 
 # Function to replace placeholders in files
 function Replace-Placeholders {
@@ -104,7 +104,8 @@ function Replace-Placeholders {
         [string]$imagePath,
         [string]$outputFilePath,
         [string]$office,
-        [string]$signatureName
+        [string]$signatureName,
+        [string]$base64Image
     )
     
     # Read the template file content
@@ -122,6 +123,7 @@ function Replace-Placeholders {
     $content = $content -replace "{{ImagePath}}", $imagePath
     $content = $content -replace "{{Office}}", $office
     $content = $content -replace "{{SignatureName}}", $signatureName 
+    $content = $content -replace "{{Base64Image}}", $base64Image
 
     # Write the updated content to the renamed output file
     Set-Content -Path $outputFilePath -Value $content
@@ -129,6 +131,14 @@ function Replace-Placeholders {
 
 # Search for all files in all subfolders of the template folder
 $templateFiles = Get-ChildItem -Path $TemplateFolderPath -Recurse
+
+# Construct the destination folder name for the images
+$signatureFilesFolder = $TemplateName
+
+# Construct the image path for the current signature
+$imagePath = $signatureFilesFolder + "/" + $TemplateName + "_files/image001.png"
+$imageBytes = [System.IO.File]::ReadAllBytes($imagePath)
+$base64Image = [Convert]::ToBase64String($imageBytes)
 
 # Rename and replace placeholders in all template files, copying the folder structure
 foreach ($file in $templateFiles) {
@@ -150,7 +160,7 @@ foreach ($file in $templateFiles) {
 
     # If the file is an .htm or .txt file, replace placeholders
     if ($file.Extension -eq '.htm' -or $file.Extension -eq '.txt' -or $file.Extension -eq '.xml') {
-        Replace-Placeholders -filePath $file.FullName -name $Name -position $Position -phone $Phone -email $Email.ToLower() -address $Address -greeting $Greeting -imagePath $signatureImagePath -outputFilePath $outputFilePath -signatureName $signatureName
+        Replace-Placeholders -filePath $file.FullName -name $Name -position $Position -phone $Phone -email $Email.ToLower() -address $Address -greeting $Greeting -imagePath $signatureImagePath -outputFilePath $outputFilePath -signatureName $signatureName -base64Image $base64Image
     } else {
         # For non-.htm/.txt files, simply copy them without modification
         Copy-Item -Path $file.FullName -Destination $outputFilePath -Force

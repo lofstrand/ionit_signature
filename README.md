@@ -86,7 +86,7 @@ NionIT_Template/
 └── NionIT_Template_files/
     └── colorschememapping.xml
     └── filelist.xml
-    └── logo.png
+    └── image001.png
     └── themedata.thmx
 ```
 
