@@ -19,7 +19,7 @@
     The office for which the signature is being generated (e.g., Stockholm, Skopje, Bitola, Malmö, Sofia, Göteborg).
 
 .EXAMPLE
-    ./import-signature.ps1 -Name "John Doe" -Position "Senior Developer" -Phone "+46 701 234 567" -Email "john.doe@nionit.com" -Office "Stockholm"
+    ./Generate-SignatureForOutlook.ps1 -Name "John Doe" -Position "Senior Developer" -Phone "+46 701 234 567" -Email "john.doe@nionit.com" -Office "Stockholm"
 
     This example creates a signature for "John Doe" for the "Stockholm" office using a single template, renames the files, and copies them to the Outlook folder.
 
